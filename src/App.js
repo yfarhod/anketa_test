@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 
 function App() {
   // form states
@@ -9,27 +8,38 @@ function App() {
   const [vopros3, setVopros3] = useState("");
 
   // submit event
+  const url =
+    "https://script.google.com/macros/s/AKfycbzSBAO0OYd1hAKQ4FBLCK3mMkOhoevp8dydvjXyQSVd0ONdRkfXSZEbZcxbp5GGt8kk0w/exec";
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(anketa, vopros1, vopros2, vopros3);
     const data = {
-      No_Анкеты: anketa,
-      Вопрос1: vopros1,
-      Вопрос2: vopros2,
-      Вопрос3: vopros3,
+      anketa: anketa,
+      vopros1: vopros1,
+      vopros2: vopros2,
+      vopros3: vopros3,
     };
-    axios
-      .post(
-        "https://script.google.com/macros/s/AKfycbzs38xQuMbQ0IVnesgYRKOoOMQe52sF1K9my_pfDsMwtJxcKuJIS7mxahXBGY1ChetRNQ/exec",
-        data
-      )
-      .then((response) => {
-        console.log(response);
-        setAnketa("");
-        setVopros1("");
-        setVopros2("");
-        setVopros3("");
-      });
+
+    fetch(url, {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      mode: "no-cors", // no-cors, *cors, same-origin
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      //credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: "follow", // manual, *follow, error
+      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    setAnketa("");
+    setVopros1("");
+    setVopros2("");
+    setVopros3("");
+    fetch(url)
+      .then((response) => response.json())
+      .then((response) => console.log(response));
   };
 
   return (
