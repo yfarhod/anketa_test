@@ -37,10 +37,10 @@ export const DataResult = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((v) => (
-              <tr>
-                {v.map((e) => (
-                  <td>{e}</td>
+            {data.map((v, i) => (
+              <tr key={i}>
+                {v.map((e, ind) => (
+                  <td key={ind}>{e}</td>
                 ))}
               </tr>
             ))}
