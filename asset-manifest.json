@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/anketa_test/static/css/main.af5b8f10.css",
+    "main.js": "/anketa_test/static/js/main.35e38256.js",
+    "static/js/787.43f3b42b.chunk.js": "/anketa_test/static/js/787.43f3b42b.chunk.js",
+    "index.html": "/anketa_test/index.html",
+    "main.af5b8f10.css.map": "/anketa_test/static/css/main.af5b8f10.css.map",
+    "main.35e38256.js.map": "/anketa_test/static/js/main.35e38256.js.map",
+    "787.43f3b42b.chunk.js.map": "/anketa_test/static/js/787.43f3b42b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.af5b8f10.css",
+    "static/js/main.35e38256.js"
+  ]
+}
